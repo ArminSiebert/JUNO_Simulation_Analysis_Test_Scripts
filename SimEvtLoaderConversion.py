@@ -6,7 +6,7 @@ from lib.sim.metadata import create_metadata_file
 
 
 #Settings
-dir_nm = "Simulation_Positron" #has to be changed correctly!
+dir_nm = "Simulation_Muon_J24" #has to be changed correctly!
 elec_type = "_"+"det2elec"
 rec_type = "_"+"det2elec2rec"
 #rec_type = "_"+"det2rec"

@@ -41,7 +41,7 @@ dir_nm = "SimulationScripts"
 base_dir = os.path.join(workspace, dir_nm)
 
 scripts = [
-    #os.path.join(base_dir, "DetSim.py"),
+    os.path.join(base_dir, "DetSim.py"),
     os.path.join(base_dir, "det2rec.py"),
     os.path.join(base_dir, "det2elec.py"),
     os.path.join(base_dir, "elec2rec.py"),

@@ -30,7 +30,7 @@ import random
 #endregion
 
 #Settings
-dir_nm = "Simulation_Positron" #has to be changed correctly!
+dir_nm = "Simulation_Muon" #has to be changed correctly!
 evtmax = "-1" #has to be checked
 
 

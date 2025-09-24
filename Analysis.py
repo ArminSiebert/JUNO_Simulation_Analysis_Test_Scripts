@@ -46,7 +46,7 @@ from utils.plot_constants import *
 
 
 #Settings
-dir_nm = "Simulation_Positron" #has to be changed correctly!
+dir_nm = "Simulation_Muon" #has to be changed correctly!
 TUTORIALROOT = os.environ["TUTORIALROOT"]
 
 #region input and output
@@ -97,16 +97,16 @@ def plot_hittimes(hittimes,titel,plot_typ):
     hist.set_bins(x_max-x_min, x_min, x_max)
     hist.fill(hittimes)
     ### Plot histogram in plots 
-    plt = Plot()
+    plt = Plot(figsize=(12, 8.11))
     plt.add(hist, color=MAIN_COLOR)
     plt.set_xlim(max(x_min, 1), x_max)
     plt.set_ylim(0, None)
     plt.set_xscale('log')
     plt.set_xlabel("t [ns]")
-    plt.set_ylabel("Count")
-    plt.set_title(f'{titel}_{parts_out[6]}_{plot_typ}')
+    plt.set_ylabel("Counts / ns")
+    #plt.set_title(f'{titel}_{parts_out[6]}_{plot_typ}')
     output_path_plot= os.path.join(output_dir_plots, f"{output_filename_plot_base}_{plot_typ}.pdf")
-    plt.savefig(output_path_plot)
+    plt.savefig(output_path_plot) #, bbox_inches = "tight"
 
 def get_hits(hit_times, hit_pmt_ids, pmt_typ):  #gets the hittimes for a pmt_typ 
     hit_times, hit_pmt_ids = htu.select_pmts(hit_times, hit_pmt_ids, pmt_typ=pmt_typ)
@@ -190,7 +190,8 @@ for i, analysis_files in enumerate(zip(input_files_det,input_files_elec2rec,inpu
     geninfo.GetEntry(0)
     hit_times = np.asarray(evt.hitTime)
     hit_pmt_ids = np.asarray(evt.pmtID)
-    pos = (geninfo.InitX[0], geninfo.InitY[0], geninfo.InitZ[0])
+    #pos = (geninfo.InitX[0], geninfo.InitY[0], geninfo.InitZ[0])
+    pos = (evt.edepX, evt.edepY, evt.edepZ)
     with open(output_path_analysis, "a") as f:
         f.write(f"{pos=}\n")
     print(f"{pos=}")

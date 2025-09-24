@@ -1,7 +1,7 @@
 from matplotlib.colors import ListedColormap
 
 
-FONT_SIZE = 16
+FONT_SIZE = 33
 MARGIN = 0.12
 
 SG_LABEL = "Proton decay"

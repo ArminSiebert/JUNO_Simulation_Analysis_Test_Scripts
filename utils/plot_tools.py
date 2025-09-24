@@ -10,7 +10,8 @@ from warnings import catch_warnings, simplefilter
 import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
-from matplotlib.ticker import MaxNLocator
+from matplotlib.ticker import MaxNLocator,ScalarFormatter,MultipleLocator
+from matplotlib.ticker import FormatStrFormatter
 
 from .plot_constants import *
 
@@ -35,6 +36,13 @@ class Ax:
     def __init__(self, ax):
         ax.ticklabel_format(axis="x", scilimits=[-3, 3])
         ax.ticklabel_format(axis="y", scilimits=[-3, 3])
+
+        # Tickpositionen automatisch, „schöne“ Schritte
+        ax.yaxis.set_major_locator(MaxNLocator(nbins='4'))
+
+        # Ticklabels auf max. 1 Nachkommastelle
+        #ax.yaxis.set_major_formatter(lambda x, _: f"{x:.1f}")
+        
         self.ax = ax
     
     def add(self, obj, **kwargs):

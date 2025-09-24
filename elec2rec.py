@@ -30,7 +30,7 @@ import random
 #endregion
 
 #Settings
-dir_nm = "Simulation_Positron" #has to be changed correctly!
+dir_nm = "Simulation_Muon" #has to be changed correctly!
 evtmax = "-1" #has to be checked
 
 
@@ -70,10 +70,12 @@ for i, input_filename in enumerate(input_files, start=1):
         "python", f"{TUTORIALROOT}/share/tut_rtraw2rec.py",  #tut_rtraw2rec.py or tut_elec2rec.py: No such file or directory
         "--evtmax", evtmax,
         "--input", input_path,
+        #"--Algorithm omilrec",
         #"--seed", str(seed),
         "--output", output_path,
         "--user-output", user_output_path,
-        "--EnableUserOutput" 
+        "--EnableUserOutput",
+        "--method", "energy-point" 
     ]
 
     print(f"[{i}/{len(input_files)}] Running elec2rec on {input_filename}")

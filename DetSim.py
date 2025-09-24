@@ -31,15 +31,15 @@ print(f'{TUTORIALROOT=}')
 #endregion
 
 #Settings
-dir_nm = "Simulation_Positron" #has to be changed correctly! directory where everything should be saved. Doesen't need to exist
+dir_nm = "Simulation_Muon" #has to be changed correctly! directory where everything should be saved. Doesen't need to exist
 #List of number of particles with the same parameters  
-N = [1] 
+N = [1,1,1] 
 # Parameter
 evtmax = "1"    #these 3 has to stay the same for one run
 start_evtid = "0"
-particles = "e+"
-positions = [["7000", "0", "0"]]
-momentums = [["2000"]]
+particles = "mu-"
+positions = [["0", "0", "0"],["0", "0", "0"],["0", "0", "0"]]
+momentums = [["1000"],["2000"],["3000"]]
 
 
 TUTORIALROOT = os.environ["TUTORIALROOT"]
